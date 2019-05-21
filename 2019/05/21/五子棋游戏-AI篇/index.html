@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="赢法数组用一个三维的数组记录五子棋的所有赢法。
+每种赢法的统计数组我们用一维数组来记录每种赢法
+如何判断输赢判断输赢的方法
+实现计算机落子遍历整个棋盘，进行权值的比较
+
+赢法数组首先定义一个三维的数组，用于存放所有赢的情况。
+12345678var wins = [] ;//三维数组for(var ">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>五子棋游戏--AI篇 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="赢法数组用一个三维的数组记录五子棋的所有赢法。 每种赢法的统计数组我们用一维数组来记录每种赢法 如何判断输赢判断输赢的方法 实现计算机落子遍历整个棋盘，进行权值的比较  赢法数组首先定义一个三维的数组，用于存放所有赢的情况。 12345678var wins = [] ;//三维数组for(var i=0; i&amp;lt;15; i++)&amp;#123;    wins[i] = [] ;    for">
+<meta property="og:type" content="article">
+<meta property="og:title" content="五子棋游戏--AI篇">
+<meta property="og:url" content="https://zjj8888.github.io/2019/05/21/五子棋游戏-AI篇/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="赢法数组用一个三维的数组记录五子棋的所有赢法。 每种赢法的统计数组我们用一维数组来记录每种赢法 如何判断输赢判断输赢的方法 实现计算机落子遍历整个棋盘，进行权值的比较  赢法数组首先定义一个三维的数组，用于存放所有赢的情况。 12345678var wins = [] ;//三维数组for(var i=0; i&amp;lt;15; i++)&amp;#123;    wins[i] = [] ;    for">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/05/21/5ce3ced963cbe86832.png">
+<meta property="og:updated_time" content="2019-05-21T10:55:14.064Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="五子棋游戏--AI篇">
+<meta name="twitter:description" content="赢法数组用一个三维的数组记录五子棋的所有赢法。 每种赢法的统计数组我们用一维数组来记录每种赢法 如何判断输赢判断输赢的方法 实现计算机落子遍历整个棋盘，进行权值的比较  赢法数组首先定义一个三维的数组，用于存放所有赢的情况。 12345678var wins = [] ;//三维数组for(var i=0; i&amp;lt;15; i++)&amp;#123;    wins[i] = [] ;    for">
+<meta name="twitter:image" content="https://i.loli.net/2019/05/21/5ce3ced963cbe86832.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Hexo" rel="home">Hexo</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-五子棋游戏-AI篇" class="post-五子棋游戏-AI篇 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      五子棋游戏--AI篇
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/21/五子棋游戏-AI篇/" data-id="cjvxqjw740001m8l96adlvxzh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <ul>
+<li>赢法数组<br>用一个三维的数组记录五子棋的所有赢法。</li>
+<li>每种赢法的统计数组<br>我们用一维数组来记录每种赢法</li>
+<li>如何判断输赢<br>判断输赢的方法</li>
+<li>实现计算机落子<br>遍历整个棋盘，进行权值的比较</li>
+</ul>
+<h2 id="赢法数组"><a href="#赢法数组" class="headerlink" title="赢法数组"></a>赢法数组</h2><p>首先定义一个三维的数组，用于存放所有赢的情况。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wins = [] ;</span><br><span class="line"><span class="comment">//三维数组</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">15</span>; i++)&#123;</span><br><span class="line">    wins[i] = [] ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;<span class="number">15</span>; j++)&#123;</span><br><span class="line">        wins[i][j] = [] ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>赢法共有四种情况：横向、纵向、正斜向、反斜向</p>
+<p>横向：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//赢法统计  </span></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span> ;</span><br><span class="line"><span class="comment">//横向</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">15</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;<span class="number">11</span>; j++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>; k&lt;<span class="number">5</span>; k++)&#123;</span><br><span class="line">            wins[i][j+k][count] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        count++ ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/05/21/5ce3ced963cbe86832.png" alt="17.png"></p>
+<p>以此类推，纵向、正斜向、反斜向也是同理：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//纵向</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">15</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;<span class="number">11</span>; j++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>; k&lt;<span class="number">5</span>; k++)&#123;</span><br><span class="line">            wins[j+k][i][count] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        count++ ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//正斜向</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">11</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;<span class="number">11</span>; j++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>; k&lt;<span class="number">5</span>; k++)&#123;</span><br><span class="line">            wins[i+k][j+k][count] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        count++ ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//反斜向</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">11</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">14</span>; j&gt;<span class="number">3</span>; j--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>; k&lt;<span class="number">5</span>; k++)&#123;</span><br><span class="line">            wins[i+k][j-k][count] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        count++ ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(count);<span class="comment">//赢法共有572种</span></span><br></pre></td></tr></table></figure>
+<h2 id="赢法的统计数组"><a href="#赢法的统计数组" class="headerlink" title="赢法的统计数组"></a>赢法的统计数组</h2><p>主要用到的是一维数组，用来计算某种赢法是否达成。</p>
+<p>某赢法中如果落下一个棋子，赢法值加1，加到5就说明此种赢法达成，结束游戏；</p>
+<p>如果该赢法中有另一方的棋子，此种赢法作废。</p>
+<p>定义并实例化两个数组，一个用来存放玩家赢法的数组，另一个用来存放电脑赢法的数组；</p>
+<p>定义了一个over变量，标志游戏是否结束。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//游戏结束</span></span><br><span class="line"><span class="keyword">var</span> over = <span class="literal">false</span> ;</span><br><span class="line"><span class="comment">//玩家赢法的数组  </span></span><br><span class="line"><span class="keyword">var</span> myWin = [] ;</span><br><span class="line"><span class="comment">//电脑赢法的数组</span></span><br><span class="line"><span class="keyword">var</span> computerWin = [] ;</span><br><span class="line"><span class="comment">//统计数组的初始化</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;count; i++)&#123;</span><br><span class="line">    myWin[i] = <span class="number">0</span> ;</span><br><span class="line">    computerWin[i] = <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在单击事件里面判定，循环遍历所有的赢法，如果某种赢法里有棋子，就<code>myWin[k]++</code>，如果<code>myWin[k] == 5</code>成立了，改变<code>over</code>的标志，就代表你赢了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">chess.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(over)&#123;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> x = e.offsetX ;</span><br><span class="line">    <span class="keyword">var</span> y = e.offsetY ;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="built_in">Math</span>.floor(x/<span class="number">30</span>) ;</span><br><span class="line">    <span class="keyword">var</span> j = <span class="built_in">Math</span>.floor(y/<span class="number">30</span>) ;</span><br><span class="line">    <span class="keyword">if</span>(chessBoard[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">        oneStep(i,j,me);</span><br><span class="line">        <span class="keyword">if</span>(me)&#123;</span><br><span class="line">            chessBoard[i][j] = <span class="number">1</span> ;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            chessBoard[i][j] = <span class="number">2</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        me = !me ;  </span><br><span class="line">        <span class="comment">//落下子后进行统计</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>; k&lt;count; k++)&#123;</span><br><span class="line">            <span class="comment">//如果是某种赢法</span></span><br><span class="line">            <span class="keyword">if</span>(wins[i][j][k])&#123;</span><br><span class="line">                myWin[k]++;</span><br><span class="line">                <span class="comment">//计算机没有机会了，设置一个出界值</span></span><br><span class="line">                computerWin[k] = <span class="number">6</span> ;</span><br><span class="line">                <span class="keyword">if</span>(myWin[k] == <span class="number">5</span>)&#123;</span><br><span class="line">                    <span class="built_in">window</span>.alert(<span class="string">"你赢了！"</span>);</span><br><span class="line">                    <span class="comment">//结束游戏</span></span><br><span class="line">                    over = <span class="literal">true</span> ;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="计算机判断有效落棋点"><a href="#计算机判断有效落棋点" class="headerlink" title="计算机判断有效落棋点"></a>计算机判断有效落棋点</h2><p>在完成落子统计后判断是否结束游戏，如果没结束，就轮到计算机下棋，计算棋下棋调用computerAi方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!over)&#123;</span><br><span class="line">    <span class="comment">//如果游戏没有结束，轮到计算机下棋</span></span><br><span class="line">    me = !me ;  </span><br><span class="line">    computerAi();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在点击鼠标的时候需要判断是否轮到人落棋：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果不是人下棋，点击无效，直接返回</span></span><br><span class="line"><span class="keyword">if</span>(!me)&#123;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总体代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(chessBoard[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">    oneStep(i,j,me);</span><br><span class="line">    chessBoard[i][j] = <span class="number">1</span> ;</span><br><span class="line">    <span class="comment">//落下子后需要进行统计</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>; k&lt;count; k++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(wins[i][j][k])&#123;</span><br><span class="line">            myWin[k]++;</span><br><span class="line">            computerWin[k] = <span class="number">6</span> ;</span><br><span class="line">            <span class="keyword">if</span>(myWin[k] == <span class="number">5</span>)&#123;</span><br><span class="line">                <span class="built_in">window</span>.alert(<span class="string">"你赢了！"</span>);</span><br><span class="line">                over = <span class="literal">true</span> ;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!over)&#123;</span><br><span class="line">        me = !me ;  </span><br><span class="line">        computerAi();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来实现computerAi()。首先定义并实例化myScore[]与computerScore []两个数组，用于存放各个棋点的落子价值，再分别遍历人和计算机的所有赢法，分别给赢法中有1、2、3、4个棋子赋权值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> computerAI = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//定义两个数组，用于存放每个点的分值</span></span><br><span class="line">    <span class="keyword">var</span> myScore = [] ;</span><br><span class="line">    <span class="keyword">var</span> computerScore = [] ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">15</span>; i++)&#123;</span><br><span class="line">        myScore[i] = [] ;</span><br><span class="line">        computerScore[i] = [] ;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;<span class="number">15</span>; j++)&#123;</span><br><span class="line">            myScore[i][j] = <span class="number">0</span> ;</span><br><span class="line">            computerScore[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//为所有赢法打分</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">15</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;<span class="number">15</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessBoard[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">//遍历所有赢法</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>; k&lt;count; k++)&#123;</span><br><span class="line">                    <span class="comment">//这种赢法有子</span></span><br><span class="line">                    <span class="keyword">if</span>(wins[i][j][k])&#123;</span><br><span class="line">                        <span class="comment">//有一个黑子</span></span><br><span class="line">                        <span class="keyword">if</span>(myWin[k] == <span class="number">1</span>)&#123;</span><br><span class="line">                            myScore[i][j] += <span class="number">200</span> ;</span><br><span class="line">                        <span class="comment">//有俩个黑子</span></span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(myWin[k] == <span class="number">2</span>)&#123;</span><br><span class="line">                            myScore[i][j] += <span class="number">400</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(myWin[k] == <span class="number">3</span>)&#123;</span><br><span class="line">                            myScore[i][j] += <span class="number">2000</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(myWin[k] == <span class="number">4</span>)&#123;</span><br><span class="line">                            myScore[i][j] += <span class="number">10000</span> ;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="comment">//有一个白子</span></span><br><span class="line">                        <span class="keyword">if</span>(computerWin[k] == <span class="number">1</span>)&#123;</span><br><span class="line">                            <span class="comment">//电脑落子权值大于人落子权值是为了让电脑自己赢优先于拦截</span></span><br><span class="line">                            computerScore[i][j] += <span class="number">220</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(computerWin[k] == <span class="number">2</span>)&#123;</span><br><span class="line">                            computerScore[i][j] += <span class="number">420</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(computerWin[k] == <span class="number">3</span>)&#123;</span><br><span class="line">                            computerScore[i][j] += <span class="number">2200</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(computerWin[k] == <span class="number">4</span>)&#123;</span><br><span class="line">                            computerScore[i][j] += <span class="number">20000</span> ;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现计算机落子"><a href="#实现计算机落子" class="headerlink" title="实现计算机落子"></a>实现计算机落子</h2><p>接下来找到计算机落子的最佳坐标，主要是向着电脑自己赢的方向和不让人赢的方向找落子点，然后在这个坐标上落子就可以实现功能了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> computerAI = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> myScore = [] ;</span><br><span class="line">    <span class="keyword">var</span> computerScore = [] ;</span><br><span class="line">    <span class="comment">//最佳落子点权值</span></span><br><span class="line">    <span class="keyword">var</span> max = <span class="number">0</span> ;</span><br><span class="line">    <span class="comment">//最佳落子点坐标</span></span><br><span class="line">    <span class="keyword">var</span> u = <span class="number">0</span>, v = <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">15</span>; i++)&#123;</span><br><span class="line">        myScore[i] = [] ;</span><br><span class="line">        computerScore[i] = [] ;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;<span class="number">15</span>; j++)&#123;</span><br><span class="line">            myScore[i][j] = <span class="number">0</span> ;</span><br><span class="line">            computerScore[i][j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//为所有赢法打分</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">15</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;<span class="number">15</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessBoard[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>; k&lt;count; k++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(wins[i][j][k])&#123;</span><br><span class="line">                        <span class="keyword">if</span>(myWin[k] == <span class="number">1</span>)&#123;</span><br><span class="line">                            myScore[i][j] += <span class="number">200</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(myWin[k] == <span class="number">2</span>)&#123;</span><br><span class="line">                            myScore[i][j] += <span class="number">400</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(myWin[k] == <span class="number">3</span>)&#123;</span><br><span class="line">                            myScore[i][j] += <span class="number">2000</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(myWin[k] == <span class="number">4</span>)&#123;</span><br><span class="line">                            myScore[i][j] += <span class="number">10000</span> ;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span>(computerWin[k] == <span class="number">1</span>)&#123;</span><br><span class="line">                            computerScore[i][j] += <span class="number">220</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(computerWin[k] == <span class="number">2</span>)&#123;</span><br><span class="line">                            computerScore[i][j] += <span class="number">420</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(computerWin[k] == <span class="number">3</span>)&#123;</span><br><span class="line">                            computerScore[i][j] += <span class="number">2200</span> ;</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(computerWin[k] == <span class="number">4</span>)&#123;</span><br><span class="line">                            computerScore[i][j] += <span class="number">20000</span> ;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//下面判断计算机落子的最佳处</span></span><br><span class="line">                <span class="comment">//人在某步的权值更高的时候</span></span><br><span class="line">                <span class="keyword">if</span>(myScore[i][j] &gt; max )&#123;</span><br><span class="line">                    max = myScore[i][j] ;</span><br><span class="line">                    u = i ;</span><br><span class="line">                    v = j ;</span><br><span class="line">                <span class="comment">//如果权值是最大了</span></span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(myScore[i][j] = max)&#123;</span><br><span class="line">                    <span class="comment">//而i,j点的权值比在u,v点的更大</span></span><br><span class="line">                    <span class="keyword">if</span>(computerScore[i][j] &gt; computerScore[u][v])&#123;</span><br><span class="line">                        u = i ;</span><br><span class="line">                        v = j ;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//电脑在某步的权值更高的时候</span></span><br><span class="line">                <span class="keyword">if</span>(computerScore[i][j] &gt; max )&#123;</span><br><span class="line">                    max = computerScore[i][j] ;</span><br><span class="line">                    u = i ;</span><br><span class="line">                    v = j ;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(computerScore[i][j] = max)&#123;</span><br><span class="line">                    <span class="comment">//而计算机在此处落子更有用</span></span><br><span class="line">                    <span class="keyword">if</span>(myScore[i][j] &gt; myScore[u][v])&#123;</span><br><span class="line">                        u = i ;</span><br><span class="line">                        v = j ;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//在最佳落子点落白子</span></span><br><span class="line">    oneStep(u, v, <span class="literal">false</span>) ;</span><br><span class="line">    chessBoard[u][v] == <span class="number">2</span> ; </span><br><span class="line">    <span class="comment">//计算机落完子后需要进行统计</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k=<span class="number">0</span>; k&lt;count; k++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(wins[u][v][k])&#123;</span><br><span class="line">            computerWin[k]++;</span><br><span class="line">            myWin[k] = <span class="number">6</span> ;</span><br><span class="line">            <span class="keyword">if</span>(computerWin[k] == <span class="number">5</span>)&#123;</span><br><span class="line">                <span class="built_in">window</span>.alert(<span class="string">"电脑赢了！"</span>);</span><br><span class="line">                over = <span class="literal">true</span> ;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!over)&#123;</span><br><span class="line">        <span class="comment">//如果游戏没结束</span></span><br><span class="line">        me = !me ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/05/21/五子棋游戏-AI篇/">
+    <time datetime="2019-05-21T08:32:42.000Z" class="entry-date">
+        2019-05-21
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2019/05/21/五子棋游戏-UI篇/" rel="prev"><span class="meta-nav">←</span> (no title)</a></span>
+    
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/21/五子棋游戏-UI篇/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/21/五子棋游戏-AI篇/">五子棋游戏--AI篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 John Doe
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
