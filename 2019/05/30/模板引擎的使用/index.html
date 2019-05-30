@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="模板引擎为什么要用到模板引擎？
+在做前端开发的时候，有时候经常需要根据后端返回的json数据，然后来生成html，再显示到页面中去。如果通过传统的字符串拼接的方式，结构比较复杂，代码维护起来比较困难。这时候需要用到模板引擎来简化。
+前台模板(展示)引擎的使用arttemplate的使用步骤：
+123">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>模板引擎的使用 | 不二说</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="模板引擎为什么要用到模板引擎？ 在做前端开发的时候，有时候经常需要根据后端返回的json数据，然后来生成html，再显示到页面中去。如果通过传统的字符串拼接的方式，结构比较复杂，代码维护起来比较困难。这时候需要用到模板引擎来简化。 前台模板(展示)引擎的使用arttemplate的使用步骤： 1234567891011121314//1. 将arttemplate引入到页面&amp;lt;script s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模板引擎的使用">
+<meta property="og:url" content="https://zjj8888.github.io/2019/05/30/模板引擎的使用/index.html">
+<meta property="og:site_name" content="不二说">
+<meta property="og:description" content="模板引擎为什么要用到模板引擎？ 在做前端开发的时候，有时候经常需要根据后端返回的json数据，然后来生成html，再显示到页面中去。如果通过传统的字符串拼接的方式，结构比较复杂，代码维护起来比较困难。这时候需要用到模板引擎来简化。 前台模板(展示)引擎的使用arttemplate的使用步骤： 1234567891011121314//1. 将arttemplate引入到页面&amp;lt;script s">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-30T04:46:13.705Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模板引擎的使用">
+<meta name="twitter:description" content="模板引擎为什么要用到模板引擎？ 在做前端开发的时候，有时候经常需要根据后端返回的json数据，然后来生成html，再显示到页面中去。如果通过传统的字符串拼接的方式，结构比较复杂，代码维护起来比较困难。这时候需要用到模板引擎来简化。 前台模板(展示)引擎的使用arttemplate的使用步骤： 1234567891011121314//1. 将arttemplate引入到页面&amp;lt;script s">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="不二说" rel="home">不二说</a>
+      </h1>
+      
+        <h2 class="site-description hitokoto"></h2>
+        <script type="text/javascript" src="https://v1.hitokoto.cn/?encode=js"></script>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-模板引擎的使用" class="post-模板引擎的使用 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      模板引擎的使用
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/30/模板引擎的使用/" data-id="cjwa7d0px0001qcl9zh9f13zw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h2><p>为什么要用到模板引擎？</p>
+<p>在做前端开发的时候，有时候经常需要根据后端返回的json数据，然后来生成html，再显示到页面中去。如果通过传统的字符串拼接的方式，结构比较复杂，代码维护起来比较困难。这时候需要用到模板引擎来简化。</p>
+<h3 id="前台模板-展示-引擎的使用"><a href="#前台模板-展示-引擎的使用" class="headerlink" title="前台模板(展示)引擎的使用"></a>前台模板(展示)引擎的使用</h3><p>arttemplate的使用步骤：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 将arttemplate引入到页面</span></span><br><span class="line">&lt;script src=<span class="string">"./template-web.js"</span>&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 在页面中定义一个模板</span></span><br><span class="line">&lt;script id=<span class="string">"test"</span> type=<span class="string">"text/html"</span>&gt;</span><br><span class="line">	&lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">	&#123;&#123; each books &#125;&#125;</span></span><br><span class="line"><span class="regexp">		&lt;div&gt;&#123;&#123; $value &#125;&#125;&lt;/</span>div&gt;</span><br><span class="line">	&#123;&#123; /each &#125;&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/3.使用模板渲染页面</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/template("模板的id",模板数据)  把指定模板渲染成页面</span></span><br><span class="line"><span class="regexp">	var html = template('test',data);</span></span><br></pre></td></tr></table></figure>
+<p>arttemplate的基本语法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;script id=<span class="string">"test"</span> type=<span class="string">"text/html"</span>&gt;</span><br><span class="line">	&#123;&#123; <span class="keyword">if</span> flag &#125;&#125;</span><br><span class="line">		&lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">		&#123;&#123; each books &#125;&#125;</span></span><br><span class="line"><span class="regexp">			&lt;div&gt;&#123;&#123; $value &#125;&#125;&lt;/</span>div&gt;</span><br><span class="line">		&#123;&#123; /each &#125;&#125;</span><br><span class="line">	&#123;&#123; <span class="keyword">else</span> &#125;&#125;</span><br><span class="line">		&lt;h1&gt;flag为<span class="literal">false</span>&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">		&#123;&#123; each names as value i &#125;&#125;</span></span><br><span class="line"><span class="regexp">			&lt;div&gt;索引是&#123;&#123; i &#125;&#125;  内容是 &#123;&#123; value &#125;&#125;&lt;/</span>div&gt;</span><br><span class="line">		&#123;&#123; /each &#125;&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//#value 如果value是html内容，会将html当成网页执行；如果没有#号，会当成普通文本执行</span></span><br><span class="line">		<span class="comment">//&#123;&#123;#value&#125;&#125;</span></span><br><span class="line">	&#123;&#123; /<span class="keyword">if</span> &#125;&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">	var container = document.getElementById("container");</span></span><br><span class="line"><span class="regexp">	var data = &#123;</span></span><br><span class="line"><span class="regexp">        title : '图书信息',</span></span><br><span class="line"><span class="regexp">        books:['三国演义','水浒传','西游记','红楼梦'],</span></span><br><span class="line"><span class="regexp">        names:['小明','小黑','小话','小宏'],</span></span><br><span class="line"><span class="regexp">        flag:false,</span></span><br><span class="line"><span class="regexp">        value: '&lt;span style="color:#F00"&gt;hello world!&lt;/</span>span&gt;<span class="string">'</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    //template("模板的id",模板数据)  把指定模板渲染成页面</span></span><br><span class="line"><span class="string">	var html = template('</span>test<span class="string">',data);</span></span><br><span class="line"><span class="string">	container.innerHTML = html;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="后台模板引擎的使用"><a href="#后台模板引擎的使用" class="headerlink" title="后台模板引擎的使用"></a>后台模板引擎的使用</h3><p>使用步骤：</p>
+<p>1.npm install –save art-template</p>
+<p>2.npm install –save express-art-template</p>
+<p>3.指定arttemplate渲染的文件</p>
+<p>app.engine(‘html’, require(‘express-art-template’));</p>
+<p>//指定art-template默认渲染哪个文件夹下的页面</p>
+<p>app.set(‘views’, __dirname + ‘/views2’);</p>
+<p>4.写请求代码</p>
+<p>app.get(“/index”,(req,res)=&gt;{</p>
+<pre><code>res.render(&quot;index.html&quot;,{
+</code></pre><p>​        name:”张三”</p>
+<p>​    })</p>
+<p>})</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/05/30/模板引擎的使用/">
+    <time datetime="2019-05-30T02:58:35.000Z" class="entry-date">
+        2019-05-30
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2019/05/29/Express的路由和中间件/" rel="next">Express的路由和中间件 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/30/模板引擎的使用/">模板引擎的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/29/Express的路由和中间件/">Express的路由和中间件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/21/五子棋游戏-AI篇/">五子棋游戏--AI篇</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/08/五子棋游戏-UI篇/">五子棋游戏--UI篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 Jio Zhou
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

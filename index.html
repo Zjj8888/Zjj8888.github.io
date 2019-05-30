@@ -62,6 +62,168 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-模板引擎的使用" class="post-模板引擎的使用 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/05/30/模板引擎的使用/">模板引擎的使用</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/30/模板引擎的使用/" data-id="cjwa7d0px0001qcl9zh9f13zw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h2><p>为什么要用到模板引擎？</p>
+<p>在做前端开发的时候，有时候经常需要根据后端返回的json数据，然后来生成html，再显示到页面中去。如果通过传统的字符串拼接的方式，结构比较复杂，代码维护起来比较困难。这时候需要用到模板引擎来简化。</p>
+<h3 id="前台模板-展示-引擎的使用"><a href="#前台模板-展示-引擎的使用" class="headerlink" title="前台模板(展示)引擎的使用"></a>前台模板(展示)引擎的使用</h3><p>arttemplate的使用步骤：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 将arttemplate引入到页面</span></span><br><span class="line">&lt;script src=<span class="string">"./template-web.js"</span>&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 在页面中定义一个模板</span></span><br><span class="line">&lt;script id=<span class="string">"test"</span> type=<span class="string">"text/html"</span>&gt;</span><br><span class="line">	&lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">	&#123;&#123; each books &#125;&#125;</span></span><br><span class="line"><span class="regexp">		&lt;div&gt;&#123;&#123; $value &#125;&#125;&lt;/</span>div&gt;</span><br><span class="line">	&#123;&#123; /each &#125;&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/3.使用模板渲染页面</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/template("模板的id",模板数据)  把指定模板渲染成页面</span></span><br><span class="line"><span class="regexp">	var html = template('test',data);</span></span><br></pre></td></tr></table></figure>
+<p>arttemplate的基本语法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;script id=<span class="string">"test"</span> type=<span class="string">"text/html"</span>&gt;</span><br><span class="line">	&#123;&#123; <span class="keyword">if</span> flag &#125;&#125;</span><br><span class="line">		&lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">		&#123;&#123; each books &#125;&#125;</span></span><br><span class="line"><span class="regexp">			&lt;div&gt;&#123;&#123; $value &#125;&#125;&lt;/</span>div&gt;</span><br><span class="line">		&#123;&#123; /each &#125;&#125;</span><br><span class="line">	&#123;&#123; <span class="keyword">else</span> &#125;&#125;</span><br><span class="line">		&lt;h1&gt;flag为<span class="literal">false</span>&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">		&#123;&#123; each names as value i &#125;&#125;</span></span><br><span class="line"><span class="regexp">			&lt;div&gt;索引是&#123;&#123; i &#125;&#125;  内容是 &#123;&#123; value &#125;&#125;&lt;/</span>div&gt;</span><br><span class="line">		&#123;&#123; /each &#125;&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//#value 如果value是html内容，会将html当成网页执行；如果没有#号，会当成普通文本执行</span></span><br><span class="line">		<span class="comment">//&#123;&#123;#value&#125;&#125;</span></span><br><span class="line">	&#123;&#123; /<span class="keyword">if</span> &#125;&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">	var container = document.getElementById("container");</span></span><br><span class="line"><span class="regexp">	var data = &#123;</span></span><br><span class="line"><span class="regexp">        title : '图书信息',</span></span><br><span class="line"><span class="regexp">        books:['三国演义','水浒传','西游记','红楼梦'],</span></span><br><span class="line"><span class="regexp">        names:['小明','小黑','小话','小宏'],</span></span><br><span class="line"><span class="regexp">        flag:false,</span></span><br><span class="line"><span class="regexp">        value: '&lt;span style="color:#F00"&gt;hello world!&lt;/</span>span&gt;<span class="string">'</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    //template("模板的id",模板数据)  把指定模板渲染成页面</span></span><br><span class="line"><span class="string">	var html = template('</span>test<span class="string">',data);</span></span><br><span class="line"><span class="string">	container.innerHTML = html;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="后台模板引擎的使用"><a href="#后台模板引擎的使用" class="headerlink" title="后台模板引擎的使用"></a>后台模板引擎的使用</h3><p>使用步骤：</p>
+<p>1.npm install –save art-template</p>
+<p>2.npm install –save express-art-template</p>
+<p>3.指定arttemplate渲染的文件</p>
+<p>app.engine(‘html’, require(‘express-art-template’));</p>
+<p>//指定art-template默认渲染哪个文件夹下的页面</p>
+<p>app.set(‘views’, __dirname + ‘/views2’);</p>
+<p>4.写请求代码</p>
+<p>app.get(“/index”,(req,res)=&gt;{</p>
+<pre><code>res.render(&quot;index.html&quot;,{
+</code></pre><p>​        name:”张三”</p>
+<p>​    })</p>
+<p>})</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/05/30/模板引擎的使用/">
+    <time datetime="2019-05-30T02:58:35.000Z" class="entry-date">
+        2019-05-30
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Express的路由和中间件" class="post-Express的路由和中间件 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/05/29/Express的路由和中间件/">Express的路由和中间件</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/29/Express的路由和中间件/" data-id="cjwa7d0pe0000qcl9vbfbijo6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Express 是一个由<strong>路由</strong>和<strong>中间件</strong>构成一个的 web 开发框架，从本质上来说，一个 Express 应用就是在<strong>调用各种中间件函数</strong>。</p>
+<p>什么是路由？</p>
+<p>即如何处理HTTP请求中的路径部分。比如“<a href="http://xxx.com/users/profile" target="_blank" rel="noopener">http://xxx.com/users/profile</a>”这个URL，路由将决定怎么处理/users/profile这个路径。</p>
+<p>什么是中间件（Middleware）？</p>
+<p>一个请求发送到服务器后，它的生命周期是 先收到request（请求），然后服务端处理，处理完了以后发送response（响应）回去。在这个服务端处理的过程中，就是中间件<strong>函数</strong>执行的时候。比如当业务逻辑复杂的时候，需要把处理的事情分配成几个部分来做，而每个部分就是一个中间件。</p>
+<p>简而言之，当我们访问一个地址时，服务器要对这个路径做出响应，采取一定的作用，我们可以把这个过程看作一个路由。访问的“/”即为路由路径，服务器采取的动作即为中间件（middleware），即一个个特殊的函数。</p>
+<h2 id="中间件分类"><a href="#中间件分类" class="headerlink" title="中间件分类"></a>中间件分类</h2><ul>
+<li>应用级中间件</li>
+<li>路由级中间件</li>
+<li>内置中间件</li>
+<li>错误处理中间件</li>
+<li>第三方中间件</li>
+</ul>
+<h3 id="应用级中间件"><a href="#应用级中间件" class="headerlink" title="应用级中间件"></a>应用级中间件</h3><p>应用级中间件使用方式为: app.use([path,] function [, function…])</p>
+<p>path: 访问路径，可以省略，省略则所有请求都执行该中间件；</p>
+<p>function: 执行函数，每个中间件的执行函数可以为单个、多个、执行函数的数组，也可以是他们的组合，但至少得有一个执行函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种写法</span></span><br><span class="line">app.use(<span class="string">"/index"</span>,(req,res,next)=&gt;&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"ss"</span>);</span><br><span class="line">	next();<span class="comment">//next()表示执行下一个中间件</span></span><br><span class="line">&#125;)</span><br><span class="line">app.use(<span class="string">"/index"</span>,(req,res,next)=&gt;&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"rr"</span>);</span><br><span class="line">	next();</span><br><span class="line">&#125;)</span><br><span class="line">app.use(<span class="string">"/index"</span>,(req,res)=&gt;&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"zz"</span>);</span><br><span class="line">	res.send(<span class="string">"index compelete"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"running..."</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第二种写法</span></span><br><span class="line"><span class="keyword">let</span> f1=<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"22"</span>);</span><br><span class="line">	next();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> f2=<span class="function">(<span class="params">req,res,next</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"33"</span>);</span><br><span class="line">	next();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> f3=<span class="function">(<span class="params">req,res</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"44"</span>);</span><br><span class="line">	res.send(<span class="string">"complete"</span>);</span><br><span class="line">&#125;</span><br><span class="line">app.listen(<span class="number">8000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"running..."</span>)</span><br><span class="line">&#125;)</span><br><span class="line">app.use(<span class="string">"/admin"</span>,[f1,f2,f3]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第三种写法</span></span><br><span class="line">app.use(<span class="string">"/admin"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"ww"</span>);</span><br><span class="line">	next();</span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"aa"</span>);</span><br><span class="line">	res.send(<span class="string">"admin complete"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">8000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"running..."</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="路由级中间件"><a href="#路由级中间件" class="headerlink" title="路由级中间件"></a>路由级中间件</h3><p>路由器层中间件的工作方式与应用层中间件基本相同，差异之处在于它绑定的对象为 express.Router()。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"11"</span>);</span><br><span class="line">	<span class="comment">//next();</span></span><br><span class="line">	<span class="comment">//直接执行下一个相同路由</span></span><br><span class="line">	next(<span class="string">'route'</span>);</span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"22"</span>);</span><br><span class="line">	next();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res,next</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"33"</span>);</span><br><span class="line">    next();</span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"44"</span>);</span><br><span class="line">    res.send(<span class="string">"finish"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(<span class="number">8000</span>,()=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"running..."</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="内置中间件"><a href="#内置中间件" class="headerlink" title="内置中间件"></a>内置中间件</h3><p>Express 中内置的中间件函数是express.static，负责提供 Express 应用程序的静态资源。</p>
+<p>原理是将静态文件放在服务器上，客户端访问服务器来获取静态资源。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.use( express.static(<span class="string">'./public/'</span>));</span><br><span class="line"><span class="comment">//通过以上代码就可以访问public目录下的图片、css文件、javascript文件了</span></span><br><span class="line"><span class="comment">//localhost:8000/index.html</span></span><br><span class="line"><span class="comment">//localhost:8000/kitten.jpg</span></span><br><span class="line"><span class="comment">//localhost:8000/css/style.css</span></span><br></pre></td></tr></table></figure>
+<p>如果你的静态资源放在多个目录下面，可以多次调用express.static中间件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.use( express.static(&apos;./public/&apos;));</span><br><span class="line">app.use( express.static(&apos;./files/&apos;));</span><br></pre></td></tr></table></figure>
+<p>还可以为静态资源目录指定一个挂载路径的方式来实现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="string">'/public/'</span>, express.static(<span class="string">'./public/'</span>));</span><br><span class="line"><span class="comment">//这样就可以通过带有/public的前缀来访问了</span></span><br><span class="line"><span class="comment">//localhost:8000/public/index.html</span></span><br><span class="line"><span class="comment">//localhost:8000/public/kitten.jpg</span></span><br><span class="line"><span class="comment">//localhost:8000/public/css/style.css</span></span><br></pre></td></tr></table></figure>
+<h3 id="错误处理中间件"><a href="#错误处理中间件" class="headerlink" title="错误处理中间件"></a>错误处理中间件</h3><p>错误处理中间件函数的定义方式与其他中间件函数基本相同，差别在于错误处理函数的自变量为(err,req, res,next)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/home'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req, res,next</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> a = <span class="literal">null</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a.toString());</span><br><span class="line">        next();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(e)&#123;</span><br><span class="line">        next(e);</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;)</span><br><span class="line">app.get(<span class="string">'/home'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err,req, res,next</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"55"</span>);</span><br><span class="line">    res.send(<span class="string">"home finish"</span>); </span><br><span class="line">&#125;);</span><br><span class="line">app.listen(<span class="number">8000</span>,()=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"running..."</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="第三方中间件"><a href="#第三方中间件" class="headerlink" title="第三方中间件"></a>第三方中间件</h3><p>使用前需要先安装相应模块，然后在中间件中加载。</p>
+<p>如cookie-parser,主要用来实现cookie的解析；</p>
+<p>express-session,用来创建session,将用户请求的数据保存在服务器端;</p>
+<p>body-parser,主要用来接收post请求参数；</p>
+<p>以<strong>body-parser</strong>为例的使用步骤：</p>
+<p>1.安装插件     npm install body-parser –save</p>
+<p>2.引入bodyparser     const bodyParser = require(‘body-parser’)</p>
+<p>3.使用bodyparser中间件  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//让请求的处理函数能够接收到普通post请求的参数，请求的Content-type 为 x-www-form-urlencoded</span></span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br><span class="line"><span class="comment">//让请求的处理函数能够接收到json格式的参数，请求的Content-type 为application/json</span></span><br><span class="line">app.use(bodyParser.json());</span><br></pre></td></tr></table></figure>
+<p>4.接下来就可以在请求的处理函数中使用req.body来获取post请求的参数信息了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.post(<span class="string">"/dologin"</span>,(req,res)=&gt;&#123;</span><br><span class="line"><span class="built_in">console</span>.log(req.body);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Express的Router对象"><a href="#Express的Router对象" class="headerlink" title="Express的Router对象"></a>Express的Router对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//user.js</span></span><br><span class="line"><span class="keyword">let</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="comment">//创建router对象</span></span><br><span class="line"><span class="keyword">let</span> router = express.Router();</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">"/list"</span>,(req,res)=&gt;&#123;</span><br><span class="line">	res.send(<span class="string">"用户信息"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">router.post(<span class="string">"/add"</span>,(req,res)=&gt;&#123;</span><br><span class="line">	res.send(<span class="string">"新增用户"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//导出router对象</span></span><br><span class="line"><span class="built_in">module</span>.exports=router;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//server.js</span></span><br><span class="line"><span class="keyword">let</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">let</span> user = <span class="built_in">require</span>(<span class="string">"./user"</span>);</span><br><span class="line"><span class="keyword">let</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加路由到server上</span></span><br><span class="line">app.use(<span class="string">"/user"</span>,user);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">8000</span>,()=&gt;&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"running..."</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>HTTP 是无状态协议。当你浏览了一个页面，然后转到同一个网站的另一个页面，服务器无法认识到这是同一个浏览器在访问同一个网站。每一次的访问，都是没有任何关系的。</p>
+<p>会话管理：客户端和服务器通信过程中，会存在一些数据，这些数据怎么保存呢？</p>
+<p>保存的两种方案：</p>
+<ol>
+<li><p>会话数据保存在客户端  Cookie</p>
+</li>
+<li><p>会话数据保存在服务器  Session</p>
+</li>
+</ol>
+<p>Cookie解析：使用cookie-parser(第三方中间件)。</p>
+<p>第一次访问一个服务器，不可能携带 cookie， 必须是服务器得到这次请求，在下行响应报头中，携带 cookie 信息，此后每一次浏览器往这个服务器发出的请求，都会携带这个 cookie。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/setCookie"</span>,(req,res)=&gt;&#123;</span><br><span class="line">	res.cookie(<span class="string">"name"</span>,<span class="string">"xx"</span>,&#123;</span><br><span class="line">        <span class="comment">//cookie的有效使用时间</span></span><br><span class="line">		maxAge: <span class="number">10</span>*<span class="number">6000</span>,</span><br><span class="line">        <span class="comment">//对cookie进行签名，如果签名后用req.signedCookies()来获取，如果没有签名用req.cookies()来获取cookie</span></span><br><span class="line">		signed: <span class="literal">true</span>,</span><br><span class="line">		<span class="comment">//不允许通过js代码操作Cookie</span></span><br><span class="line">		httpOnly: <span class="literal">true</span>, </span><br><span class="line">		<span class="comment">//只有以/users开头的路径才可以访问这个cookie。path不写默认是/</span></span><br><span class="line">		path: <span class="string">"/users"</span></span><br><span class="line">	&#125;)</span><br><span class="line">	res.send(<span class="string">'setcookie'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Cookie的缺点：</p>
+<p>Cookie保存的是非中文的字符串；</p>
+<p>数量限制：浏览器一般只允许存放300个Cookie，每个站点最多存放20个Cookie；</p>
+<p>大小限制：每个Cookie的大小限制为4KB。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/05/29/Express的路由和中间件/">
+    <time datetime="2019-05-29T11:11:58.000Z" class="entry-date">
+        2019-05-29
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-五子棋游戏-AI篇" class="post-五子棋游戏-AI篇 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -77,7 +239,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/21/五子棋游戏-AI篇/" data-id="cjvxt1fsm0001dcl9po7i9nhc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/21/五子棋游戏-AI篇/" data-id="cjwa7d0rh0003qcl9r1hkqx9j" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -150,7 +312,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/08/五子棋游戏-UI篇/" data-id="cjvxt1fsb0000dcl92wbevg80" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/08/五子棋游戏-UI篇/" data-id="cjwa7d0py0002qcl9f9r1icxt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -237,6 +399,14 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
+        
+          <li>
+            <a href="/2019/05/30/模板引擎的使用/">模板引擎的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/29/Express的路由和中间件/">Express的路由和中间件</a>
+          </li>
         
           <li>
             <a href="/2019/05/21/五子棋游戏-AI篇/">五子棋游戏--AI篇</a>
