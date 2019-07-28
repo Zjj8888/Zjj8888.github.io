@@ -62,6 +62,97 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-react面试题" class="post-react面试题 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/07/28/react面试题/">react面试题</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/07/28/react面试题/" data-id="cjymz5gwi0001qsl9gmwlodwm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>1.React中keys的作用是什么?</p>
+<p>Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识.我们需要保证某个元素的 key 在其同级元素中具有唯一性.</p>
+<p>2.react的生命周期函数有哪些?</p>
+<p>① 组件的创建阶段:</p>
+<p>componentWillMount:组件将要被挂载、渲染到页面上，虚拟dom没有被创建;</p>
+<p>render:组件在这里生成虚拟dom,但没有挂载到页面;</p>
+<p>componentDidMount:虚拟dom挂载到页面上.</p>
+<p>② 组件的运行阶段:</p>
+<p>componentWillReceiveProps:组件将要接收到属性的时候调用;</p>
+<p>shouldComponentUpdate:组件接受到新属性或者新状态的时候调用（返回 false，接收数据后不更新，阻止 render 调用，后面的函数不会被继续执行了）;</p>
+<p>componentWillUpdate:组件即将更新,不能修改属性和状态;</p>
+<p>render:组件在这里生成虚拟dom,但没有挂载到页面;</p>
+<p>componentDidUpdate:组件已经更新,虚拟dom挂载到页面上(props或者state改变之后触发).</p>
+<p>③ 组件的销毁阶段</p>
+<p>componentWillUnmount:组件即将销毁.</p>
+<p>3.shouldComponentUpdate 有什么作用?(react 性能优化是哪个周期函数?)</p>
+<p>shouldComponentUpdate 这个方法用来判断是否需要调用 render 方法重新描绘dom。因为 dom 的描绘非常消耗性能，如果我们能在 shouldComponentUpdate 方法中能够写出更优化的 dom diff 算法，可以极大的提高性能。</p>
+<p>4.为什么虚拟 dom 会提高性能?</p>
+<p>虚拟 dom 相当于在 js 和真实 dom 中间加了一个缓存，利用 dom diff 算法避免了没有必要的 dom 操作，从而提高性能。</p>
+<p>5.react diff 原理是什么?</p>
+<p>diff算法的作用:计算出Virtual DOM中真正变化的部分，并只针对该部分进行原生DOM操作，而非重新渲染整个页面。其原理主要是:</p>
+<p>① 把树形结构按照层级分解,只比较同级元素;</p>
+<p>② 给列表结构的每个单元添加唯一的key属性,方便比较;</p>
+<p>③ react只会匹配相同class的component(这里的class指的是组件名字);</p>
+<p>④ 合并操作,调用component的setState方法的时候,react将其标记为dirty.到每个事件循环结束,react检查所有标记dirty的component重新绘制.</p>
+<p>⑤ 选择性子树渲染.开发人员可以重写shouldComponentUpdate提高diff的性能.</p>
+<p>6.组件的状态(state)和属性(props)之间有何不同?</p>
+<p>State 是一种数据结构，用于组件挂载时所需数据的默认值。State 可能会随着时间的推移而发生突变，但多数时候是作为用户事件行为的结果。</p>
+<p>Props则是组件的配置。props 由父组件传递给子组件，并且就子组件而言，props 是不可变的。组件不能改变自身的 props，但是可以把其子组件的 props 放在一起(统一管理)。Props 也不仅仅是数据,回调函数也可以通过 props 传递。</p>
+<p>7.在构造函数中调用 super(props) 的目的是什么?</p>
+<p>在 super() 被调用之前，子类是不能使用 this 的，在 ES2015 中，子类必须在 constructor 中调用 super()。传递 props 给 super() 的原因则是便于(在子类中)能在 constructor 访问 this.props。</p>
+<p>8.react 组件的划分？</p>
+<p>根据组件的职责通常把组件分为 UI 组件和容器组件.UI 组件负责 UI 的呈现，容器组件负责管理数据和逻辑.两者通过 React-Redux 提供 connect 方法联系起来.</p>
+<p>9.简述 flux 思想.</p>
+<p>Flux 的最大特点，就是数据的”单向流动”.</p>
+<p>用户访问 View–&gt;View 发出用户的 Action–&gt;Dispatcher 收到 Action，要求 Store 进行相应的更新–&gt;Store 更新后，发出一个”change”事件–&gt;View 收到”change”事件后，更新页面.</p>
+<p>10.简述一下对redux 的认识.</p>
+<p>为什么要用redux:</p>
+<p>在React中,数据在组件中是单向流动的,数据从一个方向父组件流向子组件（通过props）,所以,两个非父子组件之间通信就相对麻烦，redux的出现就是为了解决state里面的数据共享问题.</p>
+<p>三大原则:</p>
+<p>① 单一数据源:使用redux的程序,所有的state都存储在一个单一的数据源store内部,类似一个巨大的对象树;</p>
+<p>② state是只读的:改变state的唯一方式是通过触发action来修改;</p>
+<p>③ 使用纯函数执行修改:educers是一些纯函数,接口当前state和action,只需要根据action,返回对应的state,而且必须要有返回.</p>
+<p>概念解析:</p>
+<p>store:就是保存数据的地方,createStore这个函数，用来生成Store;</p>
+<p>state:就是store里面存储的数据,只要state相同,view就是一样的,可以通过store.getState()获取;</p>
+<p>action:state的改变会导致View的变化，但是在redux中不能直接操作state,action对象用来告诉store需要改变state；</p>
+<p>reducer:store收到action以后,必须给出一个新的state,这样view才会发生变化.这种state的计算过程就叫做reducer.它接收action和当前state作为参数，返回一个新的state.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![1.png](https://i.loli.net/2019/07/28/5d3d9c52319e830870.png)</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/07/28/react面试题/">
+    <time datetime="2019-07-28T11:36:05.000Z" class="entry-date">
+        2019-07-28
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-模板引擎的使用" class="post-模板引擎的使用 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -77,7 +168,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/30/模板引擎的使用/" data-id="cjwa7mpjr0002l4l98jmuzgu3" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/30/模板引擎的使用/" data-id="cjymz5gx00003qsl9d7i9nv5r" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -134,7 +225,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/29/Express的路由和中间件/" data-id="cjwa7mpja0000l4l9ujmimmjl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/29/Express的路由和中间件/" data-id="cjymz5gux0000qsl9geng1y8z" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -235,7 +326,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/21/五子棋游戏-AI篇/" data-id="cjwa7mpjs0003l4l9i37p8een" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/21/五子棋游戏-AI篇/" data-id="cjymz5gx20004qsl9lwhmyf2k" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -308,7 +399,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/08/五子棋游戏-UI篇/" data-id="cjwa7mpjp0001l4l9oivk8ezu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/08/五子棋游戏-UI篇/" data-id="cjymz5gwz0002qsl9qqtcly93" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -395,6 +486,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
+        
+          <li>
+            <a href="/2019/07/28/react面试题/">react面试题</a>
+          </li>
         
           <li>
             <a href="/2019/05/30/模板引擎的使用/">模板引擎的使用</a>
