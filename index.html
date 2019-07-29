@@ -77,14 +77,14 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/07/28/react面试题/" data-id="cjymzmzqg0001mkl9byfr8jwo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/07/28/react面试题/" data-id="cjynxvg1c0000s8l9nmpt2jyv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>1.React中keys的作用是什么?</p>
-<p>Keys 是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识.我们需要保证某个元素的 key 在其同级元素中具有唯一性.</p>
+        <p>1.React中key的作用是什么?</p>
+<p>Keys是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识.我们需要保证某个元素的 key 在其同级元素中具有唯一性.</p>
 <p>2.react的生命周期函数有哪些?</p>
 <p>① 组件的创建阶段:</p>
 <p>componentWillMount:组件将要被挂载、渲染到页面上，虚拟dom没有被创建;</p>
@@ -101,7 +101,7 @@
 <p>3.shouldComponentUpdate 有什么作用?(react 性能优化是哪个周期函数?)</p>
 <p>shouldComponentUpdate 这个方法用来判断是否需要调用 render 方法重新描绘dom。因为 dom 的描绘非常消耗性能，如果我们能在 shouldComponentUpdate 方法中能够写出更优化的 dom diff 算法，可以极大的提高性能。</p>
 <p>4.为什么虚拟 dom 会提高性能?</p>
-<p>虚拟 dom 相当于在 js 和真实 dom 中间加了一个缓存，利用 dom diff 算法避免了没有必要的 dom 操作，从而提高性能。</p>
+<p>虚拟 dom 相当于在 js 和真实 dom 中间加了一个缓存，利用 dom diff 算法避免了没有必要的 dom 操作，从而提高性能。真实DOM的操作，一般都会对某块元素的整体重新渲染。采用虚拟DOM的话，当数据变化的时候，只需要局部刷新变化的位置就好了。</p>
 <p>5.react diff 原理是什么?</p>
 <p>diff算法的作用:计算出Virtual DOM中真正变化的部分，并只针对该部分进行原生DOM操作，而非重新渲染整个页面。其原理主要是:</p>
 <p>① 把树形结构按照层级分解,只比较同级元素;</p>
@@ -115,9 +115,13 @@
 <p>7.在构造函数中调用 super(props) 的目的是什么?</p>
 <p>在 super() 被调用之前，子类是不能使用 this 的，在 ES2015 中，子类必须在 constructor 中调用 super()。传递 props 给 super() 的原因则是便于(在子类中)能在 constructor 访问 this.props。</p>
 <p>8.react 组件的划分？</p>
-<p>根据组件的职责通常把组件分为 UI 组件和容器组件.UI 组件负责 UI 的呈现，容器组件负责管理数据和逻辑.两者通过 React-Redux 提供 connect 方法联系起来.</p>
+<p>① 函数组件(Functional Component )和类组件(Class Component)，划分依据是根据组件的定义方式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数组件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Welcome</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 类组件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Welcome</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;h1&gt;Hello, &#123;this.props.name&#125;&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>② 无状态组件(Stateless Component )和有状态组件(Stateful Component)，划分依据是根据组件内部是否维护state。</p>
+<p>无状态组件内部不使用state，只根据外部组件传入的props返回待渲染的React 元素。有状态组件内部使用state，维护自身状态的变化，有状态组件根据外部组件传入的props和自身的state，共同决定最终返回的React 元素。</p>
+<p>③ 展示型组件(Presentational Component)和容器型组件(Container Component)，划分依据是根据组件的职责。展示型组件负责 UI 的呈现，容器组件负责管理数据和逻辑。两者通过 React-Redux 提供 connect 方法联系起来。</p>
 <p>9.简述 flux 思想.</p>
-<p>Flux 的最大特点，就是数据的”单向流动”.</p>
+<p>flux 的最大特点，就是数据的”单向流动”.</p>
 <p>用户访问 View–&gt;View 发出用户的 Action–&gt;Dispatcher 收到 Action，要求 Store 进行相应的更新–&gt;Store 更新后，发出一个”change”事件–&gt;View 收到”change”事件后，更新页面.</p>
 <p>10.简述一下对redux 的认识.</p>
 <p>为什么要用redux:</p>
@@ -131,7 +135,7 @@
 <p>state:就是store里面存储的数据,只要state相同,view就是一样的,可以通过store.getState()获取;</p>
 <p>action:state的改变会导致View的变化，但是在redux中不能直接操作state,action对象用来告诉store需要改变state；</p>
 <p>reducer:store收到action以后,必须给出一个新的state,这样view才会发生变化.这种state的计算过程就叫做reducer.它接收action和当前state作为参数，返回一个新的state.</p>
-<p><img src="https://i.loli.net/2019/07/28/5d3d9c52319e830870.png" alt="1.png"></p>
+<p><img src="https://i.loli.net/2019/07/28/5d3db7f06935067401.png" alt="1.png"></p>
 
       
     </div><!-- .entry-content -->
@@ -168,7 +172,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/30/模板引擎的使用/" data-id="cjymzmzqm0003mkl9hh4nba66" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/30/模板引擎的使用/" data-id="cjynxvg1n0003s8l9tkv8h8gj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -225,7 +229,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/29/Express的路由和中间件/" data-id="cjymzmzq80000mkl95mah3lod" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/29/Express的路由和中间件/" data-id="cjynxvg1j0001s8l9rp8wkn0j" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -326,7 +330,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/21/五子棋游戏-AI篇/" data-id="cjymzmzqw0004mkl9gtygws0p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/21/五子棋游戏-AI篇/" data-id="cjynxvg1x0004s8l9zcmc5f7n" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -399,7 +403,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/08/五子棋游戏-UI篇/" data-id="cjymzmzqj0002mkl9exccdxw5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://zjj8888.github.io/2019/05/08/五子棋游戏-UI篇/" data-id="cjynxvg1l0002s8l9p5u4gprt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
